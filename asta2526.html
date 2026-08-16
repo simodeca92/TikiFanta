@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guida Asta TikiFanta 2026/27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<script type="application/json" id="team-data">
+[
+  {"key":"Alessio","color":"#d55181",
+   "conferma":{"role":"C","name":"Orsolini"},
+   "resto":0,"totaleSpesi":68,"bonus":50,
+   "roster":{
+     "P":[{"name":"Carnesecchi"},{"name":"Sportiello"},{"name":"Muric"}],
+     "D":[{"name":"Terracciano F."},{"name":"Carlos Augusto"},{"name":"Dodò"},{"name":"Bremer"},{"name":"Beukema","price":22},{"name":"Vasquez"},{"name":"Norton-Cuffy"},{"name":"Kabasele"}],
+     "C":[{"name":"Paz N."},{"name":"Gandelman"},{"name":"Orsolini"},{"name":"Bernardeschi","price":46},{"name":"Atta"},{"name":"Thorstvedt"},{"name":"Rabiot"},{"name":"Mandragora"}],
+     "A":[{"name":"Scamacca"},{"name":"Orban G."},{"name":"Bonazzoli"},{"name":"Moreo"},{"name":"Vlahovic"},{"name":"Laurientè"}]
+   },
+   "cessioni":[{"name":"Tourè I.","price":8},{"name":"Marianucci","price":2}]
+  },
+  {"key":"Antonello","color":"#199e70",
+   "conferma":{"role":"C","name":"Paz N."},
+   "resto":16,"totaleSpesi":63,"bonus":50,
+   "roster":{
+     "P":[{"name":"Falcone","price":15},{"name":"Motta"},{"name":"Caprile"}],
+     "D":[{"name":"Martin"},{"name":"Di Lorenzo"},{"name":"Ostigard"},{"name":"Solet"},{"name":"N'Dicka","price":23},{"name":"Belghali"},{"name":"Wesley"},{"name":"Baschirotto"}],
+     "C":[{"name":"Modric"},{"name":"Baturina"},{"name":"De Bruyne"},{"name":"Tramoni M."},{"name":"Sucic P."},{"name":"Marchwinski"},{"name":"Taylor K."},{"name":"Vergara","price":11}],
+     "A":[{"name":"Fullkrug"},{"name":"De Ketelaere"},{"name":"Ratkov"},{"name":"Vardy"},{"name":"Rodriguez Je.","price":14},{"name":"Dia"}]
+   },
+   "cessioni":[{"name":"Provedel","price":14},{"name":"Athekame","price":8},{"name":"Moro L.","price":1},{"name":"Deiola","price":5}]
+  },
+  {"key":"Gianvito","color":"#9085e9",
+   "conferma":{"role":"C","name":"Gudmundsson A."},
+   "resto":9,"totaleSpesi":66,"bonus":50,
+   "roster":{
+     "P":[{"name":"Maignan"},{"name":"Okoye","price":12},{"name":"Terracciano"}],
+     "D":[{"name":"Valeri"},{"name":"Marusic"},{"name":"Kalulu"},{"name":"Tiago Gabriel"},{"name":"Spinazzola"},{"name":"Vojvoda"},{"name":"Kamara H."},{"name":"Kristensen T."}],
+     "C":[{"name":"Zaniolo"},{"name":"Gudmundsson A."},{"name":"Isaksen"},{"name":"Gaetano"},{"name":"Vandeputte","price":13},{"name":"Casadei"},{"name":"Konè I."},{"name":"Nicolussi Caviglia"}],
+     "A":[{"name":"Gimenez","price":41},{"name":"Esposito F.P."},{"name":"Cambiaghi"},{"name":"Solomon"},{"name":"Hojlund"},{"name":"Berardi"}]
+   },
+   "cessioni":[{"name":"David","price":13},{"name":"Torriani","price":1},{"name":"Elmas","price":7}]
+  },
+  {"key":"SavGianfr","display":"Saverio/Gianfranco","color":"#d95926",
+   "conferma":{"role":"A","name":"Castellanos"},
+   "resto":50,"totaleSpesi":0,"bonus":50,
+   "roster":{
+     "P":[{"name":"Sommer"},{"name":"Martinez Jo."},{"name":"Di Gennaro"}],
+     "D":[{"name":"Dumfries"},{"name":"Joao Mario"},{"name":"Zappacosta"},{"name":"Kelly L."},{"name":"Maripan"},{"name":"Juan Jesus"},{"name":"Palestra"},{"name":"Pavlovic"}],
+     "C":[{"name":"Conceicao"},{"name":"Rowe"},{"name":"Calhanoglu"},{"name":"Zalewski"},{"name":"Saelemaekers"},{"name":"Liteta"},{"name":"Basic"},{"name":"Luis Henrique"}],
+     "A":[{"name":"Raspadori"},{"name":"Morata"},{"name":"Kean"},{"name":"Lukaku"},{"name":"Douvikas"},{"name":"Colombo"}]
+   },
+   "cessioni":[]
+  },
+  {"key":"Simone","color":"#3987e5",
+   "conferma":{"role":"A","name":"Thuram"},
+   "resto":31,"totaleSpesi":36,"bonus":50,
+   "roster":{
+     "P":[{"name":"Di Gregorio"},{"name":"Perin"},{"name":"Pinsoglio"}],
+     "D":[{"name":"Gosens"},{"name":"Cambiaso"},{"name":"Mancini"},{"name":"Holm"},{"name":"Luperto"},{"name":"Bernasconi"},{"name":"Ramon"},{"name":"Parisi","price":8}],
+     "C":[{"name":"Ekkelenkamp"},{"name":"McTominay"},{"name":"Cristante"},{"name":"Volpato","price":11},{"name":"Barella"},{"name":"Oristanio"},{"name":"Ndour","price":8},{"name":"Pisilli"}],
+     "A":[{"name":"Soulè"},{"name":"Thuram"},{"name":"Diao"},{"name":"Esposito Se."},{"name":"Kilicsoy"},{"name":"Vaz","price":9}]
+   },
+   "cessioni":[{"name":"Berisha M.","price":10},{"name":"Arena A.","price":2},{"name":"Diouf","price":3},{"name":"Ziolkowski","price":2}]
+  },
+  {"key":"Vincenzo","color":"#c98500",
+   "conferma":{"role":"A","name":"Kean"},
+   "resto":50,"totaleSpesi":0,"bonus":50,
+   "roster":{
+     "P":[{"name":"Meret"},{"name":"Milinkovic-Savic V."},{"name":"Contini"}],
+     "D":[{"name":"Miranda J."},{"name":"Comuzzo"},{"name":"Rrahmani"},{"name":"De Winter"},{"name":"Zemura"},{"name":"Bastoni"},{"name":"Bisseck"},{"name":"Edmundsson"}],
+     "C":[{"name":"Miller L."},{"name":"Zaccagni"},{"name":"Da Cunha"},{"name":"Zaragoza"},{"name":"Pellegrini Lo."},{"name":"Konè M."},{"name":"McKennie"},{"name":"Politano"}],
+     "A":[{"name":"Yildiz"},{"name":"Castro S."},{"name":"Dybala"},{"name":"Pellegrino M."},{"name":"Nkunku"},{"name":"Pedro"}]
+   },
+   "cessioni":[]
+  },
+  {"key":"Stefano","color":"#e66767",
+   "conferma":{"role":"D","name":"Tavares N."},
+   "resto":8,"totaleSpesi":62,"bonus":50,
+   "roster":{
+     "P":[{"name":"Ravaglia F.","price":6},{"name":"Butez"},{"name":"Tornqvist"}],
+     "D":[{"name":"Dimarco"},{"name":"Bellanova"},{"name":"Hermoso"},{"name":"Buongiorno"},{"name":"Valle"},{"name":"Scalvini"},{"name":"Celik"},{"name":"Coco"}],
+     "C":[{"name":"Zambo Anguissa","price":56},{"name":"Odgaard"},{"name":"Bernabè"},{"name":"Zielinski"},{"name":"Malinovskyi"},{"name":"Pasalic"},{"name":"Thuram K."},{"name":"Ramadani"}],
+     "A":[{"name":"Martinez L."},{"name":"Leao"},{"name":"Bonny"},{"name":"Boga"},{"name":"Dallinga"},{"name":"Malen"}]
+   },
+   "cessioni":[{"name":"Freuler","price":6},{"name":"Skorupski","price":14}]
+  },
+  {"key":"VitoStefano","display":"Vito/Stefano","color":"#008300",
+   "conferma":{"role":"A","name":"Yildiz"},
+   "resto":0,"totaleSpesi":79,"bonus":50,
+   "roster":{
+     "P":[{"name":"Svilar"},{"name":"Gollini"},{"name":"Zelezny"}],
+     "D":[{"name":"Tavares N."},{"name":"Mina"},{"name":"Muharemovic"},{"name":"Kempf"},{"name":"Akanji"},{"name":"Pellegrini Lu."},{"name":"Delprato"},{"name":"Bartesaghi"}],
+     "C":[{"name":"Vlasic"},{"name":"Maldini"},{"name":"Pulisic"},{"name":"Brescianini"},{"name":"Ilkhan"},{"name":"Folorunsho"},{"name":"Strefezza"},{"name":"Perrone","price":42}],
+     "A":[{"name":"Krstovic"},{"name":"Kulenovic"},{"name":"Pinamonti"},{"name":"Simeone"},{"name":"Davis K."},{"name":"Vitinha O.","price":37}]
+   },
+   "cessioni":[{"name":"Vergara","price":11},{"name":"Durosinmi","price":12}]
+  }
+]
+</script>
+<style>
+  :root {
+    --surface-1: #1a1a19;
+    --page-plane: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --border: rgba(255,255,255,0.10);
+    --card-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  * { box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--page-plane);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  header.top { margin-bottom: 22px; }
+  header.top h1 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 22px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
+  header.top p { margin:0; color: var(--text-secondary); font-size: 13.5px; line-height: 1.5; max-width: 640px; }
+
+  .search-wrap { margin: 22px 0 28px; position: relative; }
+  .search-wrap input {
+    width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--surface-1); color: var(--text-primary); font-size: 14px; font-family: 'Inter', sans-serif;
+  }
+  .search-wrap input:focus { outline: none; border-color: var(--text-muted); }
+  .search-results { margin-top: 10px; display:flex; flex-direction:column; gap: 6px; }
+  .search-hit {
+    display:flex; align-items:center; justify-content:space-between; gap: 10px;
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px;
+  }
+  .search-hit .who { display:flex; align-items:center; gap:8px; }
+  .search-hit .dot { width:8px; height:8px; border-radius:50%; flex:none; }
+  .search-hit .tag { font-size: 11px; padding: 2px 7px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); }
+  .search-empty { color: var(--text-muted); font-size: 13px; padding: 4px 2px; }
+
+  section { margin-bottom: 30px; }
+  h2 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); margin: 0 0 12px; font-weight: 600; }
+
+  .team-grid { display:flex; flex-direction:column; gap: 12px; }
+  .team-card { border: 1px solid var(--border); border-radius: 12px; background: var(--surface-1); box-shadow: var(--card-shadow); overflow: hidden; }
+  .team-head { display:flex; align-items:center; justify-content:space-between; gap: 14px; padding: 14px 18px; cursor: pointer; }
+  .team-head .left { display:flex; align-items:center; gap: 12px; min-width:0; }
+  .team-head .dot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+  .team-head .name { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; font-size: 15.5px; }
+  .team-head .conferma { font-size: 12.5px; color: var(--text-secondary); margin-top: 2px; }
+  .team-head .conferma b { color: var(--text-primary); font-weight: 600; }
+  .team-head .chevron { color: var(--text-muted); font-size: 12px; flex: none; transition: transform .15s; }
+  .team-card.open .chevron { transform: rotate(90deg); }
+
+  .team-body { display:none; padding: 4px 18px 18px; border-top: 1px dashed var(--gridline); }
+  .team-card.open .team-body { display:block; }
+
+  .role-block { margin-top: 14px; }
+  .role-title { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); margin-bottom: 6px; }
+  .player-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 5px 12px; }
+  .player-row { font-size: 13px; padding: 3px 0; border-bottom: 1px solid var(--gridline); }
+  .player-row .pname.conferma-pick { color: #f2c94c; font-weight: 600; }
+
+  .legend-note { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .legend-note .swatch { display:inline-block; width:9px; height:9px; border-radius:2px; background:#f2c94c; margin-right:5px; vertical-align:middle; }
+
+  @media (max-width: 560px) {
+    .player-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>Guida Asta TikiFanta 2026/27</h1>
+    <p>Riferimento dalla stagione 2025/26: la conferma con cui ogni manager è entrato nell'asta scorsa e la rosa finale di fine stagione, da cui scegliere la conferma per la prossima asta.</p>
+  </header>
+
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Cerca un giocatore in tutte le rose (es. Yildiz, Vlahovic...)">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <section>
+    <h2>Rose per manager</h2>
+    <div class="team-grid" id="teamGrid"></div>
+    <div class="legend-note"><span class="swatch"></span>giocatore evidenziato = conferma portata nell'asta 2025/26</div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var teams = JSON.parse(document.getElementById('team-data').textContent);
+  var ROLE_ORDER = ['P','D','C','A'];
+  var ROLE_LABEL = {P:'Portieri', D:'Difensori', C:'Centrocampisti', A:'Attaccanti'};
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function displayName(t){ return t.display || t.key; }
+
+  function renderTeamCard(t){
+    var roleBlocks = ROLE_ORDER.map(function(r){
+      var players = t.roster[r] || [];
+      var rows = players.map(function(p){
+        var isConferma = t.conferma && t.conferma.name === p.name && t.conferma.role === r;
+        return '<div class="player-row">'+
+          '<span class="pname'+(isConferma?' conferma-pick':'')+'">'+escapeHtml(p.name)+'</span>'+
+        '</div>';
+      }).join('');
+      return '<div class="role-block"><div class="role-title">'+ROLE_LABEL[r]+'</div><div class="player-grid">'+rows+'</div></div>';
+    }).join('');
+
+    return '<div class="team-card" data-key="'+t.key+'">'+
+      '<div class="team-head" data-toggle="1">'+
+        '<div class="left">'+
+          '<span class="dot" style="background:'+t.color+'"></span>'+
+          '<div>'+
+            '<div class="name">'+escapeHtml(displayName(t).toUpperCase())+'</div>'+
+            '<div class="conferma">Conferma 2025/26: <b>'+(t.conferma? escapeHtml(t.conferma.name)+' ('+t.conferma.role+')' : '—')+'</b></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="chevron">▶</div>'+
+      '</div>'+
+      '<div class="team-body">'+roleBlocks+'</div>'+
+    '</div>';
+  }
+
+  function render(){
+    document.getElementById('teamGrid').innerHTML = teams.map(renderTeamCard).join('');
+    document.querySelectorAll('[data-toggle]').forEach(function(el){
+      el.addEventListener('click', function(){
+        el.closest('.team-card').classList.toggle('open');
+      });
+    });
+  }
+
+  function buildIndex(){
+    var idx = [];
+    teams.forEach(function(t){
+      ROLE_ORDER.forEach(function(r){
+        (t.roster[r]||[]).forEach(function(p){
+          idx.push({team:t, role:r, name:p.name});
+        });
+      });
+    });
+    return idx;
+  }
+  var searchIndex = buildIndex();
+
+  function runSearch(q){
+    var resultsEl = document.getElementById('searchResults');
+    q = q.trim().toLowerCase();
+    if(!q){ resultsEl.innerHTML = ''; return; }
+    var hits = searchIndex.filter(function(e){ return e.name.toLowerCase().indexOf(q) !== -1; });
+    if(!hits.length){ resultsEl.innerHTML = '<div class="search-empty">Nessun giocatore trovato.</div>'; return; }
+    resultsEl.innerHTML = hits.map(function(h){
+      var isConferma = h.team.conferma && h.team.conferma.name === h.name && h.team.conferma.role === h.role;
+      return '<div class="search-hit">'+
+        '<span class="who"><span class="dot" style="background:'+h.team.color+'"></span>'+
+          '<span>'+escapeHtml(h.name)+(h.role?' <span style="color:var(--text-muted)">('+h.role+')</span>':'')+
+          ' — '+escapeHtml(displayName(h.team))+(isConferma?' <span style="color:#f2c94c">· conferma 25/26</span>':'')+
+        '</span></span>'+
+      '</div>';
+    }).join('');
+  }
+
+  document.getElementById('searchInput').addEventListener('input', function(e){ runSearch(e.target.value); });
+
+  render();
+})();
+</script>
+</body>
+</html>
