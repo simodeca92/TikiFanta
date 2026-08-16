@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Albo d'Oro Fantacalcio</title>
+<script type="application/json" id="season-data">
+[
+  {"year":"2018/19","tronere":null,"hcupokkia":null,"fantasfiga":null,
+   "podio":["Saverio/Gianfranco","Antonello","Antonello/Vito"],"ultimo":null,
+   "partecipanti":[
+     {"manager":"Simone","team":""},
+     {"manager":"Saverio/Gianfranco","team":""},
+     {"manager":"Antonello","team":""},
+     {"manager":"Vincenzo","team":""},
+     {"manager":"Alessio","team":""},
+     {"manager":"Antonello/Vito","team":""},
+     {"manager":"Vito/Stefano","team":""},
+     {"manager":"Gianvito","team":""}
+   ]},
+  {"year":"2019/20","tronere":"Simone","hcupokkia":"Saverio/Gianfranco","fantasfiga":null,
+   "podio":["Saverio/Gianfranco","Antonello","Vincenzo"],"ultimo":null,
+   "partecipanti":[
+     {"manager":"Simone","team":""},
+     {"manager":"Saverio/Gianfranco","team":""},
+     {"manager":"Antonello","team":""},
+     {"manager":"Vincenzo","team":""},
+     {"manager":"Alessio","team":""},
+     {"manager":"Stefano","team":""},
+     {"manager":"Vito/Stefano","team":""},
+     {"manager":"Gianvito","team":""}
+   ]},
+  {"year":"2020/21","tronere":"Alessio","hcupokkia":"Alessio","fantasfiga":"Antonello",
+   "podio":["Alessio","Saverio/Gianfranco","Vincenzo"],"ultimo":null,
+   "partecipanti":[
+     {"manager":"Simone","team":""},
+     {"manager":"Saverio/Gianfranco","team":""},
+     {"manager":"Antonello","team":""},
+     {"manager":"Vincenzo","team":""},
+     {"manager":"Alessio","team":""},
+     {"manager":"Stefano","team":""},
+     {"manager":"Vito/Stefano","team":""},
+     {"manager":"Gianvito","team":""}
+   ]},
+  {"year":"2021/22","tronere":"Alessio","hcupokkia":"Alessio","fantasfiga":"Vincenzo",
+   "podio":["Alessio","Simone","Stefano"],"ultimo":"Saverio/Gianfranco",
+   "partecipanti":[
+     {"manager":"Simone","team":"FC Macchina Grande"},
+     {"manager":"Saverio/Gianfranco","team":"Beverly Inps"},
+     {"manager":"Antonello","team":"Herta Mpone"},
+     {"manager":"Vincenzo","team":"Hellas Coteca"},
+     {"manager":"Alessio","team":"FC Ngul"},
+     {"manager":"Stefano","team":"Centro-Campo Rom"},
+     {"manager":"Vito/Stefano","team":"Pescara Manzia"},
+     {"manager":"Gianvito","team":"Real Fc90"}
+   ]},
+  {"year":"2022/23","tronere":"Gianvito","hcupokkia":"Gianvito","fantasfiga":"Vito/Stefano",
+   "podio":["Stefano","Gianvito","Vincenzo"],"ultimo":"Saverio/Gianfranco",
+   "partecipanti":[
+     {"manager":"Simone","team":"Fc Macchina Grande"},
+     {"manager":"Saverio/Gianfranco","team":"Beverly Inps"},
+     {"manager":"Antonello","team":"PSG PedonSaintGufo"},
+     {"manager":"Vincenzo","team":"FC Pennic Hellas"},
+     {"manager":"Alessio","team":"FC Ngul"},
+     {"manager":"Stefano","team":"Gomonza"},
+     {"manager":"Vito/Stefano","team":"Pescara Manzia"},
+     {"manager":"Gianvito","team":"90fc"}
+   ]},
+  {"year":"2023/24","tronere":"Saverio/Gianfranco","hcupokkia":"Stefano","fantasfiga":"Vincenzo",
+   "podio":["Alessio","Gianvito","Vincenzo"],"ultimo":"Stefano",
+   "partecipanti":[
+     {"manager":"Simone","team":"Fc Macchina Grande"},
+     {"manager":"Saverio/Gianfranco","team":"Papatinaikos"},
+     {"manager":"Antonello","team":"Conferma Campioni"},
+     {"manager":"Vincenzo","team":"Mainz Na Gioia"},
+     {"manager":"Alessio","team":"Comolli Cosenza"},
+     {"manager":"Stefano","team":"One Pisa"},
+     {"manager":"Vito/Stefano","team":"Divano Kiev"},
+     {"manager":"Gianvito","team":"90fc"}
+   ]},
+  {"year":"2024/25","tronere":"Simone","hcupokkia":"Gianvito","fantasfiga":"Stefano",
+   "podio":["Simone","Gianvito","Saverio/Gianfranco"],"ultimo":"Vito/Stefano",
+   "partecipanti":[
+     {"manager":"Simone","team":"Fc Macchina Grande"},
+     {"manager":"Saverio/Gianfranco","team":"Papatinaikos"},
+     {"manager":"Antonello","team":"Conferma Campioni"},
+     {"manager":"Vincenzo","team":"Four Bove"},
+     {"manager":"Alessio","team":"FCM Calcio"},
+     {"manager":"Stefano","team":"Dovbyk Un Elfo Libero"},
+     {"manager":"Vito/Stefano","team":"Pescara Manzia"},
+     {"manager":"Gianvito","team":"90fc"}
+   ]},
+  {"year":"2025/26","tronere":"Gianvito","hcupokkia":"Simone","fantasfiga":"Simone",
+   "podio":["Saverio/Gianfranco","Stefano","Alessio"],"ultimo":"Vincenzo",
+   "partecipanti":[
+     {"manager":"Simone","team":"Fc Macchina Grande"},
+     {"manager":"Saverio/Gianfranco","team":"Papatinaikos"},
+     {"manager":"Antonello","team":"Conferma Campioni"},
+     {"manager":"Vincenzo","team":"Fc Eiffel 65.5"},
+     {"manager":"Alessio","team":"FCM Calcio"},
+     {"manager":"Stefano","team":"Temptation Haaland"},
+     {"manager":"Vito/Stefano","team":"Pescara Manzia"},
+     {"manager":"Gianvito","team":"90fc"}
+   ]}
+]
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page-plane:      #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --card-shadow:    0 1px 2px rgba(11,11,11,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page-plane:      #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --gridline:       #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --card-shadow:    0 1px 2px rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page-plane:      #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --gridline:       #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --card-shadow:    0 1px 2px rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page-plane);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  header.top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom: 28px; }
+  header.top h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  header.top p { margin:0; color: var(--text-secondary); font-size: 14px; }
+  .theme-toggle {
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
+    border-radius: 8px; padding: 7px 12px; font-size: 13px; cursor: pointer; white-space: nowrap;
+  }
+  .theme-toggle:hover { color: var(--text-primary); }
+
+  section { margin-bottom: 36px; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); margin: 0 0 12px; font-weight: 600; }
+
+  .stat-row { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 12px; }
+  .stat-tile {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; box-shadow: var(--card-shadow);
+  }
+  .stat-tile .label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+  .stat-tile .value { font-size: 20px; font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
+  .stat-tile .sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+  .card {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 20px; box-shadow: var(--card-shadow);
+  }
+
+  .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width:100%; min-width: 620px; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--gridline); }
+  th { color: var(--text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .manager-chip { display:inline-flex; align-items:center; gap:7px; }
+  .dot { width:9px; height:9px; border-radius:50%; flex: none; }
+  .medal { font-size: 12px; color: var(--text-muted); margin-left: 4px; }
+
+  .bars { display:flex; flex-direction:column; gap: 10px; }
+  .bar-row { display:grid; grid-template-columns: 150px 1fr 34px; align-items:center; gap:10px; }
+  .bar-row .name { font-size: 13px; display:flex; align-items:center; gap:7px; }
+  .bar-track { position:relative; height: 14px; background: var(--gridline); border-radius: 4px; overflow:hidden; }
+  .bar-fill { position:absolute; left:0; top:0; bottom:0; border-radius: 4px; min-width: 4px; }
+  .bar-row .val { font-size: 13px; text-align:right; font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+
+  .season-list { display:flex; flex-direction:column; gap: 10px; }
+  .season-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; background: var(--surface-1); }
+  .season-head { display:flex; align-items:center; justify-content:space-between; gap: 10px; cursor:pointer; }
+  .season-head .yr { font-weight:600; font-size: 14.5px; }
+  .season-head .podio-line { font-size: 12.5px; color: var(--text-secondary); }
+  .season-head .edit-btn { border:none; background:none; color: var(--text-muted); font-size:12px; cursor:pointer; padding:4px 6px; border-radius:6px; }
+  .season-head .edit-btn:hover { color: var(--text-primary); background: var(--gridline); }
+  .season-body { display:none; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--gridline); font-size: 13px; }
+  .season-card.open .season-body { display:block; }
+  .trophy-line { color: var(--text-secondary); margin-bottom: 8px; }
+  .trophy-line b { color: var(--text-primary); font-weight:600; }
+  .partecipanti-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 4px 14px; }
+  .partecipanti-grid div { font-size: 12.5px; color: var(--text-secondary); }
+  .partecipanti-grid b { color: var(--text-primary); font-weight: 500; }
+
+  .actions { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  button.primary {
+    background: var(--series-blue, #2a78d6); color:#fff; border:none; border-radius: 8px;
+    padding: 10px 16px; font-size: 13.5px; font-weight:600; cursor:pointer;
+  }
+  button.secondary {
+    background: transparent; color: var(--text-secondary); border:1px solid var(--border);
+    border-radius: 8px; padding: 10px 16px; font-size: 13.5px; cursor:pointer;
+  }
+  button.danger { background: transparent; color:#d03b3b; border:1px solid var(--border); border-radius:8px; padding:10px 16px; font-size:13.5px; cursor:pointer; }
+  button:hover { filter: brightness(0.96); }
+
+  .modal-backdrop {
+    position: fixed; inset:0; background: rgba(11,11,11,0.45); display:none;
+    align-items:flex-start; justify-content:center; padding: 40px 16px; overflow-y:auto; z-index: 50;
+  }
+  .modal-backdrop.open { display:flex; }
+  .modal {
+    background: var(--surface-1); border-radius: 14px; max-width: 640px; width:100%;
+    padding: 22px 24px 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+  .modal h3 { margin: 0 0 4px; font-size: 18px; }
+  .modal .hint { font-size: 12.5px; color: var(--text-muted); margin: 0 0 18px; }
+  .field-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; margin-bottom: 14px; }
+  .field { display:flex; flex-direction:column; gap:5px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: 12px; color: var(--text-secondary); font-weight:600; }
+  .field input, .field select {
+    border:1px solid var(--border); border-radius:7px; padding: 8px 10px; font-size: 13.5px;
+    background: var(--page-plane); color: var(--text-primary); font-family: inherit;
+  }
+  .part-row { display:grid; grid-template-columns: 1fr 1fr 28px; gap: 8px; margin-bottom: 6px; align-items:center; }
+  .part-row input { width:100%; }
+  .remove-row { border:none; background:none; color: var(--text-muted); cursor:pointer; font-size: 16px; line-height:1; }
+  .remove-row:hover { color:#d03b3b; }
+  .add-row-btn { font-size: 12.5px; color: var(--text-secondary); background:none; border: 1px dashed var(--border); border-radius:7px; padding: 6px 10px; cursor:pointer; margin-top:2px; }
+  .modal-actions { display:flex; justify-content: space-between; align-items:center; margin-top: 18px; gap: 10px; flex-wrap:wrap; }
+  .modal-actions .right { display:flex; gap:10px; }
+
+  footer.note { margin-top: 40px; font-size: 12px; color: var(--text-muted); line-height:1.6; }
+  footer.note code { background: var(--gridline); padding: 1px 5px; border-radius: 4px; }
+
+  @media (max-width: 560px) {
+    .field-grid { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 96px 1fr 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Albo d'Oro Fantacalcio</h1>
+      <p id="subtitle">8 stagioni · 2018/19 → 2025/26</p>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button">Tema scuro</button>
+  </header>
+
+  <section>
+    <h2>Panoramica</h2>
+    <div class="stat-row" id="statRow"></div>
+  </section>
+
+  <section>
+    <h2>Titoli vinti (1° posto)</h2>
+    <div class="card">
+      <div class="bars" id="titleBars"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Bacheca trofei</h2>
+    <div class="card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Manager</th>
+              <th class="num">Stagioni</th>
+              <th class="num">Titoli</th>
+              <th class="num">Podi</th>
+              <th class="num">Tronere</th>
+              <th class="num">HCupOkkia</th>
+              <th class="num">FantaSfiga</th>
+              <th class="num">Ultimo</th>
+            </tr>
+          </thead>
+          <tbody id="trophyTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+      <h2 style="margin:0;">Stagioni</h2>
+      <button class="primary" id="addSeasonBtn" type="button">+ Aggiungi stagione</button>
+    </div>
+    <div class="season-list" id="seasonList"></div>
+  </section>
+
+  <section>
+    <h2>Dati</h2>
+    <div class="card actions">
+      <button class="secondary" id="downloadBtn" type="button">Scarica file HTML aggiornato</button>
+      <button class="secondary" id="exportJsonBtn" type="button">Esporta dati (JSON)</button>
+      <button class="secondary" id="resetBtn" type="button">Ripristina dati originali</button>
+    </div>
+  </section>
+
+  <footer class="note">
+    Questo file è autonomo: i dati sono incorporati nella pagina stessa. Per aggiungere la
+    prossima stagione usa "+ Aggiungi stagione", poi <code>Scarica file HTML aggiornato</code> per
+    salvare una nuova versione del file con i dati aggiornati (le modifiche non si salvano da sole
+    finché non scarichi il file). Riapri il file scaricato l'anno prossimo per continuare ad aggiornarlo.
+  </footer>
+
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <h3 id="modalTitle">Aggiungi stagione</h3>
+    <p class="hint">Anno, premi speciali, podio e lista partecipanti.</p>
+    <form id="seasonForm">
+      <div class="field-grid">
+        <div class="field">
+          <label>Anno (es. 2026/27)</label>
+          <input type="text" id="f_year" required>
+        </div>
+        <div class="field"></div>
+        <div class="field">
+          <label>1° classificato</label>
+          <input type="text" list="managerList" id="f_p1">
+        </div>
+        <div class="field">
+          <label>2° classificato</label>
+          <input type="text" list="managerList" id="f_p2">
+        </div>
+        <div class="field">
+          <label>3° classificato</label>
+          <input type="text" list="managerList" id="f_p3">
+        </div>
+        <div class="field">
+          <label>Ultimo classificato</label>
+          <input type="text" list="managerList" id="f_ultimo">
+        </div>
+        <div class="field">
+          <label>Tronere</label>
+          <input type="text" list="managerList" id="f_tronere">
+        </div>
+        <div class="field">
+          <label>HCupOkkia</label>
+          <input type="text" list="managerList" id="f_hcupokkia">
+        </div>
+        <div class="field">
+          <label>FantaSfiga</label>
+          <input type="text" list="managerList" id="f_fantasfiga">
+        </div>
+      </div>
+
+      <div class="field full">
+        <label>Partecipanti e squadre</label>
+        <div id="partRows"></div>
+        <button type="button" class="add-row-btn" id="addPartRow">+ aggiungi partecipante</button>
+      </div>
+
+      <datalist id="managerList"></datalist>
+
+      <div class="modal-actions">
+        <button type="button" class="danger" id="deleteSeasonBtn" style="display:none;">Elimina stagione</button>
+        <div class="right">
+          <button type="button" class="secondary" id="cancelModalBtn">Annulla</button>
+          <button type="submit" class="primary">Salva</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var PALETTE = {
+    "Simone":            "#2a78d6",
+    "Saverio/Gianfranco":"#eb6834",
+    "Antonello":         "#1baf7a",
+    "Vincenzo":          "#eda100",
+    "Alessio":           "#e87ba4",
+    "Vito/Stefano":      "#008300",
+    "Gianvito":          "#4a3aa7",
+    "Stefano":           "#e34948"
+  };
+  var FALLBACK_COLOR = "#898781";
+
+  function colorFor(name){ return PALETTE[name] || FALLBACK_COLOR; }
+
+  var dataScript = document.getElementById('season-data');
+  var seasons = JSON.parse(dataScript.textContent);
+  var ORIGINAL_SEASONS = JSON.parse(JSON.stringify(seasons));
+  var editingIndex = null; // null = adding new
+
+  function seasonSortKey(y){
+    // "2018/19" -> 2018
+    return parseInt(y.split('/')[0], 10) || 0;
+  }
+  function sortSeasons(){
+    seasons.sort(function(a,b){ return seasonSortKey(a.year) - seasonSortKey(b.year); });
+  }
+
+  function allManagers(){
+    var set = {};
+    seasons.forEach(function(s){
+      s.partecipanti.forEach(function(p){ set[p.manager] = true; });
+      s.podio.forEach(function(m){ if(m) set[m]=true; });
+      [s.tronere,s.hcupokkia,s.fantasfiga,s.ultimo].forEach(function(m){ if(m) set[m]=true; });
+    });
+    return Object.keys(set).sort();
+  }
+
+  function computeStats(){
+    var stats = {};
+    function ensure(name){
+      if(!stats[name]) stats[name] = {manager:name, stagioni:0, titoli:0, secondi:0, terzi:0, tronere:0, hcupokkia:0, fantasfiga:0, ultimo:0};
+      return stats[name];
+    }
+    seasons.forEach(function(s){
+      s.partecipanti.forEach(function(p){ ensure(p.manager).stagioni++; });
+      if(s.podio[0]) ensure(s.podio[0]).titoli++;
+      if(s.podio[1]) ensure(s.podio[1]).secondi++;
+      if(s.podio[2]) ensure(s.podio[2]).terzi++;
+      if(s.tronere) ensure(s.tronere).tronere++;
+      if(s.hcupokkia) ensure(s.hcupokkia).hcupokkia++;
+      if(s.fantasfiga) ensure(s.fantasfiga).fantasfiga++;
+      if(s.ultimo) ensure(s.ultimo).ultimo++;
+    });
+    Object.keys(stats).forEach(function(k){
+      stats[k].podi = stats[k].titoli + stats[k].secondi + stats[k].terzi;
+    });
+    return stats;
+  }
+
+  function render(){
+    sortSeasons();
+    var stats = computeStats();
+    var statsArr = Object.keys(stats).map(function(k){ return stats[k]; });
+
+    document.getElementById('subtitle').textContent =
+      seasons.length + ' stagioni · ' + seasons[0].year + ' → ' + seasons[seasons.length-1].year;
+
+    // --- overview tiles ---
+    var byTitoli = statsArr.slice().sort(function(a,b){ return b.titoli - a.titoli || b.podi - a.podi; });
+    var byPodi = statsArr.slice().sort(function(a,b){ return b.podi - a.podi; });
+    var byUltimo = statsArr.slice().sort(function(a,b){ return b.ultimo - a.ultimo; });
+    var leader = byTitoli[0];
+    var podiLeader = byPodi[0];
+    var cucchiaio = byUltimo[0] && byUltimo[0].ultimo > 0 ? byUltimo[0] : null;
+
+    var tiles = [
+      { label: 'Stagioni disputate', value: seasons.length, sub: seasons[0].year + ' – ' + seasons[seasons.length-1].year },
+      { label: 'Più titoli', value: leader ? leader.manager : '—', sub: leader ? leader.titoli + ' titol' + (leader.titoli===1?'o':'i') : '' },
+      { label: 'Più podi', value: podiLeader ? podiLeader.manager : '—', sub: podiLeader ? podiLeader.podi + ' pod' + (podiLeader.podi===1?'io':'i') : '' },
+      { label: 'Cucchiaio di legno', value: cucchiaio ? cucchiaio.manager : '—', sub: cucchiaio ? cucchiaio.ultimo + ' volt' + (cucchiaio.ultimo===1?'a':'e') + ' ultimo' : 'nessun dato' }
+    ];
+    document.getElementById('statRow').innerHTML = tiles.map(function(t){
+      return '<div class="stat-tile"><div class="label">'+t.label+'</div><div class="value">'+escapeHtml(String(t.value))+'</div><div class="sub">'+escapeHtml(t.sub)+'</div></div>';
+    }).join('');
+
+    // --- title bar chart ---
+    var maxTitoli = Math.max(1, byTitoli[0] ? byTitoli[0].titoli : 1);
+    document.getElementById('titleBars').innerHTML = byTitoli.filter(function(s){return s.titoli>0 || true;}).map(function(s){
+      var pct = Math.round((s.titoli / maxTitoli) * 100);
+      return '<div class="bar-row">'+
+        '<div class="name"><span class="dot" style="background:'+colorFor(s.manager)+'"></span>'+escapeHtml(s.manager)+'</div>'+
+        '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%; background:'+colorFor(s.manager)+'"></div></div>'+
+        '<div class="val">'+s.titoli+'</div>'+
+      '</div>';
+    }).join('');
+
+    // --- trophy table ---
+    var trophyRows = statsArr.slice().sort(function(a,b){ return b.titoli - a.titoli || b.podi - a.podi || b.stagioni - a.stagioni; });
+    document.getElementById('trophyTable').innerHTML = trophyRows.map(function(s){
+      return '<tr>'+
+        '<td><span class="manager-chip"><span class="dot" style="background:'+colorFor(s.manager)+'"></span>'+escapeHtml(s.manager)+'</span></td>'+
+        '<td class="num">'+s.stagioni+'</td>'+
+        '<td class="num">'+s.titoli+'</td>'+
+        '<td class="num">'+s.podi+'</td>'+
+        '<td class="num">'+s.tronere+'</td>'+
+        '<td class="num">'+s.hcupokkia+'</td>'+
+        '<td class="num">'+s.fantasfiga+'</td>'+
+        '<td class="num">'+s.ultimo+'</td>'+
+      '</tr>';
+    }).join('');
+
+    // --- season list ---
+    var seasonListHtml = seasons.slice().reverse().map(function(s){
+      var idx = seasons.indexOf(s);
+      var podioLine = [s.podio[0],s.podio[1],s.podio[2]].map(function(m,i){
+        return m ? (['🥇','🥈','🥉'][i] + ' ' + m) : '';
+      }).filter(Boolean).join('  ·  ');
+      var trophyBits = [];
+      if(s.tronere) trophyBits.push('<span class="trophy-line"><b>Tronere:</b> '+escapeHtml(s.tronere)+'</span>');
+      if(s.hcupokkia) trophyBits.push('<span class="trophy-line"><b>HCupOkkia:</b> '+escapeHtml(s.hcupokkia)+'</span>');
+      if(s.fantasfiga) trophyBits.push('<span class="trophy-line"><b>FantaSfiga:</b> '+escapeHtml(s.fantasfiga)+'</span>');
+      if(s.ultimo) trophyBits.push('<span class="trophy-line"><b>Ultimo:</b> '+escapeHtml(s.ultimo)+'</span>');
+      var partHtml = s.partecipanti.map(function(p){
+        return '<div><b>'+escapeHtml(p.manager)+'</b>'+(p.team? ' — '+escapeHtml(p.team) : '')+'</div>';
+      }).join('');
+      return '<div class="season-card" data-idx="'+idx+'">'+
+        '<div class="season-head" data-toggle="'+idx+'">'+
+          '<div><div class="yr">'+escapeHtml(s.year)+'</div><div class="podio-line">'+(podioLine||'Podio non assegnato')+'</div></div>'+
+          '<button type="button" class="edit-btn" data-edit="'+idx+'">Modifica</button>'+
+        '</div>'+
+        '<div class="season-body">'+
+          '<div style="margin-bottom:10px;">'+(trophyBits.join(' &nbsp; ') || '<span class="trophy-line">Nessun premio speciale registrato</span>')+'</div>'+
+          '<div class="partecipanti-grid">'+partHtml+'</div>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+    document.getElementById('seasonList').innerHTML = seasonListHtml;
+
+    // manager datalist
+    document.getElementById('managerList').innerHTML = allManagers().map(function(m){
+      return '<option value="'+escapeHtml(m)+'">';
+    }).join('');
+
+    // persist current state into the embedded script tag
+    dataScript.textContent = JSON.stringify(seasons, null, 2);
+
+    attachSeasonListEvents();
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function attachSeasonListEvents(){
+    document.querySelectorAll('[data-toggle]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        if(e.target.closest('[data-edit]')) return;
+        el.closest('.season-card').classList.toggle('open');
+      });
+    });
+    document.querySelectorAll('[data-edit]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.stopPropagation();
+        openModal(parseInt(el.getAttribute('data-edit'),10));
+      });
+    });
+  }
+
+  // ---------- modal / form ----------
+  var backdrop = document.getElementById('modalBackdrop');
+  var form = document.getElementById('seasonForm');
+  var partRowsEl = document.getElementById('partRows');
+
+  function addPartRow(manager, team){
+    var row = document.createElement('div');
+    row.className = 'part-row';
+    row.innerHTML =
+      '<input type="text" list="managerList" placeholder="Manager" class="p-manager" value="'+escapeHtml(manager||'')+'">'+
+      '<input type="text" placeholder="Nome squadra" class="p-team" value="'+escapeHtml(team||'')+'">'+
+      '<button type="button" class="remove-row" title="rimuovi">×</button>';
+    row.querySelector('.remove-row').addEventListener('click', function(){ row.remove(); });
+    partRowsEl.appendChild(row);
+  }
+
+  document.getElementById('addPartRow').addEventListener('click', function(){ addPartRow('',''); });
+
+  function nextYearLabel(){
+    if(seasons.length===0) return '';
+    var last = seasons[seasons.length-1].year;
+    var startY = parseInt(last.split('/')[0],10);
+    var ny = startY+1, ny2 = (startY+2).toString().slice(-2);
+    return ny + '/' + ny2;
+  }
+
+  function openModal(idx){
+    editingIndex = (typeof idx === 'number') ? idx : null;
+    partRowsEl.innerHTML = '';
+    var deleteBtn = document.getElementById('deleteSeasonBtn');
+
+    if(editingIndex !== null){
+      var s = seasons[editingIndex];
+      document.getElementById('modalTitle').textContent = 'Modifica stagione ' + s.year;
+      document.getElementById('f_year').value = s.year;
+      document.getElementById('f_p1').value = s.podio[0]||'';
+      document.getElementById('f_p2').value = s.podio[1]||'';
+      document.getElementById('f_p3').value = s.podio[2]||'';
+      document.getElementById('f_ultimo').value = s.ultimo||'';
+      document.getElementById('f_tronere').value = s.tronere||'';
+      document.getElementById('f_hcupokkia').value = s.hcupokkia||'';
+      document.getElementById('f_fantasfiga').value = s.fantasfiga||'';
+      s.partecipanti.forEach(function(p){ addPartRow(p.manager, p.team); });
+      deleteBtn.style.display = 'inline-block';
+    } else {
+      document.getElementById('modalTitle').textContent = 'Aggiungi stagione';
+      document.getElementById('f_year').value = nextYearLabel();
+      ['f_p1','f_p2','f_p3','f_ultimo','f_tronere','f_hcupokkia','f_fantasfiga'].forEach(function(id){
+        document.getElementById(id).value = '';
+      });
+      var prev = seasons[seasons.length-1];
+      if(prev){ prev.partecipanti.forEach(function(p){ addPartRow(p.manager, p.team); }); }
+      else { addPartRow('',''); }
+      deleteBtn.style.display = 'none';
+    }
+    backdrop.classList.add('open');
+  }
+
+  function closeModal(){ backdrop.classList.remove('open'); editingIndex = null; }
+
+  document.getElementById('addSeasonBtn').addEventListener('click', function(){ openModal(null); });
+  document.getElementById('cancelModalBtn').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', function(e){ if(e.target === backdrop) closeModal(); });
+
+  document.getElementById('deleteSeasonBtn').addEventListener('click', function(){
+    if(editingIndex === null) return;
+    if(!confirm('Eliminare la stagione ' + seasons[editingIndex].year + '?')) return;
+    seasons.splice(editingIndex,1);
+    closeModal();
+    render();
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var year = document.getElementById('f_year').value.trim();
+    if(!year){ alert('Inserisci un anno.'); return; }
+
+    var dupIdx = seasons.findIndex(function(s,i){ return s.year === year && i !== editingIndex; });
+    if(dupIdx !== -1){ alert('Esiste già una stagione ' + year + '.'); return; }
+
+    var partecipanti = [];
+    partRowsEl.querySelectorAll('.part-row').forEach(function(row){
+      var m = row.querySelector('.p-manager').value.trim();
+      var t = row.querySelector('.p-team').value.trim();
+      if(m) partecipanti.push({manager:m, team:t});
+    });
+
+    var seasonObj = {
+      year: year,
+      tronere: document.getElementById('f_tronere').value.trim() || null,
+      hcupokkia: document.getElementById('f_hcupokkia').value.trim() || null,
+      fantasfiga: document.getElementById('f_fantasfiga').value.trim() || null,
+      podio: [
+        document.getElementById('f_p1').value.trim() || null,
+        document.getElementById('f_p2').value.trim() || null,
+        document.getElementById('f_p3').value.trim() || null
+      ],
+      ultimo: document.getElementById('f_ultimo').value.trim() || null,
+      partecipanti: partecipanti
+    };
+
+    if(editingIndex !== null){ seasons[editingIndex] = seasonObj; }
+    else { seasons.push(seasonObj); }
+
+    closeModal();
+    render();
+  });
+
+  // ---------- theme ----------
+  var htmlEl = document.documentElement;
+  var toggleBtn = document.getElementById('themeToggle');
+  function applyThemeLabel(){
+    var current = htmlEl.getAttribute('data-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = current === 'dark' || (current !== 'light' && prefersDark);
+    toggleBtn.textContent = isDark ? 'Tema chiaro' : 'Tema scuro';
+  }
+  toggleBtn.addEventListener('click', function(){
+    var current = htmlEl.getAttribute('data-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = current === 'dark' || (current !== 'light' && prefersDark);
+    htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    applyThemeLabel();
+  });
+  applyThemeLabel();
+
+  // ---------- data actions ----------
+  document.getElementById('downloadBtn').addEventListener('click', function(){
+    dataScript.textContent = JSON.stringify(seasons, null, 2);
+    var html = '<!DOCTYPE html>\n' + htmlEl.outerHTML;
+    var blob = new Blob([html], {type:'text/html'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    var lastYear = seasons.length ? seasons[seasons.length-1].year.replace('/','-') : 'update';
+    a.href = url;
+    a.download = 'AlboFantacalcio-' + lastYear + '.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('exportJsonBtn').addEventListener('click', function(){
+    var blob = new Blob([JSON.stringify(seasons, null, 2)], {type:'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'albo-fantacalcio-dati.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    if(!confirm('Ripristinare i dati originali? Le modifiche non scaricate andranno perse.')) return;
+    seasons = JSON.parse(JSON.stringify(ORIGINAL_SEASONS));
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
