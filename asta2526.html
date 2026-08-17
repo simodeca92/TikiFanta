@@ -206,6 +206,62 @@
   @media (max-width: 560px) {
     .listone-table td, .listone-table thead th { padding: 8px 10px; }
   }
+
+  .rules-stepper { display:flex; align-items:stretch; gap:6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .rules-stepper .step {
+    flex: 1 1 140px; min-width: 120px; background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 12px; display:flex; flex-direction:column; gap:4px;
+  }
+  .rules-stepper .step .num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #f2c94c; font-weight: 700;
+  }
+  .rules-stepper .step .label { font-size: 12px; color: var(--text-secondary); line-height: 1.35; }
+  .rules-stepper .arrow { display:flex; align-items:center; justify-content:center; color: var(--text-muted); font-size: 14px; flex: none; padding: 0 2px; }
+
+  .rule-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+  .rule-card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; box-shadow: var(--card-shadow); }
+  .rule-card h3 {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700;
+    margin: 0 0 10px; color: var(--text-primary); letter-spacing: -0.005em;
+  }
+  .rule-card ul { margin: 0; padding-left: 16px; }
+  .rule-card li { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin-bottom: 5px; }
+  .rule-card li:last-child { margin-bottom: 0; }
+  .rule-card li b { color: var(--text-primary); font-weight: 600; }
+  .rule-card .deadline {
+    background: rgba(242,201,76,0.08); border: 1px solid rgba(242,201,76,0.35); border-radius: 8px;
+    padding: 10px 12px; margin-bottom: 10px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;
+  }
+  .rule-card .deadline .day { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; color: #f2c94c; font-size: 14.5px; }
+  .rule-card .deadline .time { font-family: 'JetBrains Mono', ui-monospace, monospace; color: #f2c94c; font-size: 13px; }
+  .rule-card .formula {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; background: var(--page-plane);
+    border: 1px solid var(--gridline); border-radius: 6px; padding: 8px 10px; margin: 6px 0; color: var(--text-primary);
+    line-height: 1.5; overflow-wrap: break-word;
+  }
+  .rule-card .example { font-size: 11.5px; color: var(--text-muted); margin: 6px 0 0; line-height: 1.5; }
+  .rule-card .badge-row { display:flex; flex-wrap:wrap; gap: 6px; margin: 8px 0; }
+  .rule-card .badge {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; padding: 4px 9px; border-radius: 6px;
+    background: var(--page-plane); border: 1px solid var(--gridline); color: var(--text-secondary);
+  }
+  .rule-card .badge b { color: #f2c94c; }
+
+  .asta-banner {
+    display:flex; align-items:center; flex-wrap:wrap; gap: 10px 26px;
+    background: linear-gradient(135deg, rgba(242,201,76,0.12), rgba(242,201,76,0.04));
+    border: 1px solid rgba(242,201,76,0.4); border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+  }
+  .asta-banner .item { display:flex; flex-direction:column; gap: 2px; }
+  .asta-banner .item .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); }
+  .asta-banner .item .v { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; color: #f2c94c; font-size: 15px; }
+  .asta-banner .item .v.tbd { color: var(--text-secondary); font-weight: 600; font-size: 13.5px; }
+
+  @media (max-width: 560px) {
+    .rules-stepper { flex-direction: column; }
+    .rules-stepper .step { flex: 0 0 auto; }
+    .rules-stepper .arrow { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -215,6 +271,102 @@
     <h1>Guida Asta TikiFanta 2026/27</h1>
     <p>Listone quotazioni aggiornato e, dalla stagione 2025/26, la conferma con cui ogni manager è entrato nell'asta scorsa e la rosa finale di fine stagione, da cui scegliere la conferma per la prossima asta.</p>
   </header>
+
+  <section>
+    <h2>Regole dell'asta</h2>
+
+    <div class="asta-banner">
+      <div class="item"><span class="k">Data</span><span class="v">Giovedì 27 Agosto 2026</span></div>
+      <div class="item"><span class="k">Inizio</span><span class="v">ore 20:00</span></div>
+      <div class="item"><span class="k">Luogo</span><span class="v tbd">da definirsi</span></div>
+    </div>
+
+    <div class="rules-stepper">
+      <div class="step"><div class="num">1</div><div class="label">Consegna liste</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><div class="num">2</div><div class="label">Prezzo gazzetta P&middot;D</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><div class="num">3</div><div class="label">Aste e riempimento P&middot;D</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><div class="num">4</div><div class="label">Prezzo gazzetta C&middot;A</div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="step"><div class="num">5</div><div class="label">Aste e riempimento C&middot;A</div></div>
+    </div>
+
+    <div class="rule-grid">
+
+      <div class="rule-card">
+        <h3>Consegna lista</h3>
+        <div class="deadline"><span class="day">Sabato 22 Agosto</span><span class="time">ore 12:00</span></div>
+        <ul>
+          <li>Valore della squadra: <b>massimo 500 crediti</b></li>
+          <li>La conferma non può essere lo stesso giocatore portato all'asta scorsa</li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>Aste e puntate</h3>
+        <ul>
+          <li>Puntata <b>in busta chiusa</b></li>
+          <li>Parità di puntata &rarr; si ripete l'asta fino a <b>2 volte</b>, poi si decide a <b>monetina</b></li>
+          <li>Ci si può ritirare da un'asta in parità solo se hai chiamato tu il giocatore, oppure se hai già raggiunto la tua puntata massima</li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>Intromissione</h3>
+        <ul>
+          <li><b>1 intromissione per ruolo</b> a disposizione di ogni manager</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge">P <b>+5</b></span>
+          <span class="badge">D <b>+15</b></span>
+          <span class="badge">C <b>+30</b></span>
+          <span class="badge">A <b>+45</b></span>
+        </div>
+        <div class="formula">puntata max altri + 1 + handicap ruolo</div>
+        <p class="example">Es. puntata massima altri 37, intromissione su un attaccante (+45) &rarr; 37 + 1 + 45 = <b style="color:var(--text-primary)">83</b></p>
+      </div>
+
+      <div class="rule-card">
+        <h3>Conferma</h3>
+        <ul>
+          <li>1 giocatore a scelta libera dalla tua rosa finale di fine stagione</li>
+        </ul>
+        <div class="badge-row">
+          <span class="badge">P <b>+5</b></span>
+          <span class="badge">D <b>+10</b></span>
+          <span class="badge">C <b>+15</b></span>
+          <span class="badge">A <b>+20</b></span>
+        </div>
+        <ul>
+          <li>Bonus extra spesa (in aggiunta ai 500 crediti base), in base al ruolo del confermato</li>
+          <li>Nessun bonus se il confermato finisce tra i giocatori a prezzo gazzetta</li>
+          <li>Non si può confermare lo stesso giocatore per due aste di fila: in quel caso si perde il diritto alla conferma</li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>Stadio di proprietà</h3>
+        <div class="badge-row">
+          <span class="badge">Costo <b>25 crediti</b></span>
+          <span class="badge">Bonus <b>+1</b> in casa</span>
+        </div>
+        <ul>
+          <li>Acquistabile solo al termine della <b>prima asta</b></li>
+          <li>Bonus di 1 punto per le partite giocate in casa, in tutte le competizioni</li>
+          <li>Eccezioni: finali di coppa, Formula 1, Battle Royale</li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>Se il giocatore lascia la Serie A</h3>
+        <div class="formula">prezzo cessione = max( prezzo gazzetta attuale, prezzo acquisto &divide; 2 &darr; )</div>
+        <p class="example">Es. acquistato a 91, oggi in Serie B con gazzetta 51 &rarr; max(51, 45) = ceduto a <b style="color:var(--text-primary)">51</b></p>
+      </div>
+
+    </div>
+  </section>
 
   <section>
     <h2>Listone giocatori 2026/27</h2>
