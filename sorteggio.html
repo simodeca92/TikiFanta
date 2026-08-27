@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorteggio Ordine di Chiamata — TikiFanta 2026/27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --surface-1: #1a1a19;
+    --surface-2: #222220;
+    --page-plane: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --border: rgba(255,255,255,0.10);
+    --gold: #f2c94c;
+    --card-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  * { box-sizing: border-box; }
+  html, body { overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--page-plane);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 90px; }
+
+  header.top { margin-bottom: 26px; }
+  header.top .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--gold); margin-bottom: 8px;
+  }
+  header.top h1 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 22px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  header.top p { margin:0; color: var(--text-secondary); font-size: 13.5px; line-height: 1.55; max-width: 560px; }
+
+  .banner {
+    display:flex; align-items:center; flex-wrap:wrap; gap: 10px 26px;
+    background: linear-gradient(135deg, rgba(242,201,76,0.12), rgba(242,201,76,0.04));
+    border: 1px solid rgba(242,201,76,0.35); border-radius: 12px; padding: 14px 18px; margin: 20px 0 26px;
+  }
+  .banner .item { display:flex; flex-direction:column; gap: 2px; }
+  .banner .item .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); }
+  .banner .item .v { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+
+  .controls { display:flex; gap:10px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+
+  .duration-field {
+    display:flex; align-items:center; gap: 8px;
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+    padding: 9px 14px; margin-left: auto;
+  }
+  .duration-field label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11.5px;
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap;
+  }
+  .duration-field input {
+    width: 52px; background: var(--page-plane); border: 1px solid var(--gridline); border-radius: 6px;
+    color: var(--text-primary); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px;
+    font-weight: 700; padding: 5px 6px; text-align: center;
+  }
+  .duration-field input:focus { outline: none; border-color: var(--gold); }
+  .duration-field .unit { font-size: 12px; color: var(--text-muted); }
+  .btn {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 700;
+    padding: 13px 22px; border-radius: 10px; border: 1px solid transparent; cursor: pointer;
+    letter-spacing: .01em; transition: transform .08s ease, opacity .15s ease;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--gold); color: #14140f; }
+  .btn-primary:hover { opacity: .92; }
+  .btn-primary:disabled { background: var(--surface-2); color: var(--text-muted); cursor: not-allowed; }
+  .btn-ghost { background: var(--surface-1); color: var(--text-secondary); border-color: var(--border); }
+  .btn-ghost:hover { color: var(--text-primary); border-color: var(--text-muted); }
+  .btn-ghost:disabled { opacity: .4; cursor: not-allowed; }
+
+  .board { display:flex; flex-direction:column; gap: 8px; }
+
+  .slot {
+    display:flex; align-items:center; gap: 14px;
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 12px 16px; box-shadow: var(--card-shadow); position: relative; overflow: hidden;
+    transition: border-color .25s ease, background .25s ease;
+  }
+  .slot .pos {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 20px; font-weight: 800;
+    color: var(--text-muted); width: 34px; flex: none; text-align:center; transition: color .25s ease;
+  }
+  .slot.locked .pos { color: var(--gold); }
+  .slot.race-pending .pos { color: var(--text-muted); }
+
+  .reel {
+    flex: 1; min-width: 0; height: 26px; position: relative; overflow: hidden;
+    border-radius: 6px;
+  }
+  .reel .reel-inner {
+    display:flex; align-items:center; gap: 6px;
+  }
+  .reel .dot {
+    width: 9px; height: 9px; border-radius: 50%; flex: none; opacity: 0; transition: opacity .2s ease;
+  }
+  .slot.locked .reel .dot, .slot.spinning .reel .dot { opacity: 1; }
+  .reel .name {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14.5px; font-weight: 600;
+    color: var(--text-secondary); white-space: nowrap;
+  }
+  .slot.spinning .reel .name { color: var(--text-muted); }
+  .slot.locked .reel .name { color: var(--text-primary); }
+  .slot.pending .reel .name, .slot.race-pending .reel .name { color: var(--gridline); }
+  .slot.pending .pos { color: var(--gridline); }
+
+  .slot.locked {
+    border-color: rgba(242,201,76,0.5);
+    animation: settle .38s ease;
+  }
+  @keyframes settle {
+    0% { background: rgba(242,201,76,0.16); }
+    100% { background: var(--surface-1); }
+  }
+
+  /* --- race panel --- */
+  .race-panel {
+    display: none;
+    background: var(--surface-1); border: 1px solid rgba(242,201,76,0.35); border-radius: 12px;
+    padding: 16px 18px 14px; margin-bottom: 8px;
+  }
+  .race-panel.show { display: block; }
+  .race-title {
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--gold); margin-bottom: 12px; display:flex; align-items:center; gap:8px;
+  }
+  .race-title .flag { font-size: 13px; }
+  .lane { margin-bottom: 14px; }
+  .lane:last-child { margin-bottom: 0; }
+  .lane-label {
+    display:flex; align-items:center; gap:7px; font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size: 12.5px; color: var(--text-secondary); margin-bottom: 6px;
+  }
+  .lane-label .dot { width:8px; height:8px; border-radius:50%; flex:none; }
+  .lane-label .winner-tag { margin-left:auto; color: var(--gold); font-weight:700; opacity:0; transition: opacity .2s ease; }
+  .lane-label.won .winner-tag { opacity:1; }
+  .track {
+    position: relative; height: 14px; background: var(--page-plane); border: 1px solid var(--gridline);
+    border-radius: 7px; overflow: hidden;
+  }
+  .track .runner {
+    position: absolute; top: 1px; left: 1px; height: 10px; width: 10px; border-radius: 50%;
+    transition: left .04s linear;
+  }
+  .track .finish {
+    position: absolute; right: 4px; top: 0; bottom: 0; width: 2px; background: rgba(242,201,76,0.5);
+  }
+
+  .result-actions { display:flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(10px);
+    background: var(--surface-2); border: 1px solid var(--border); color: var(--text-primary);
+    font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px;
+    padding: 10px 16px; border-radius: 8px; opacity: 0; pointer-events: none; transition: all .25s ease;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .footnote { margin-top: 22px; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 24px 14px 80px; }
+    .slot { padding: 11px 12px; gap: 10px; }
+    .slot .pos { font-size: 17px; width: 26px; }
+    .reel .name { font-size: 13px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slot.locked { animation: none; }
+    .btn { transition: none; }
+    .track .runner { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">TikiFanta 2026/27</div>
+    <h1>Sorteggio ordine di chiamata</h1>
+    <p>Dall'8° al 3° posto l'ordine viene estratto a sorte, uno alla volta. Gli ultimi due manager rimasti si giocano il 1° e il 2° posto in una gara diretta.</p>
+  </header>
+
+  <div class="banner">
+    <div class="item"><span class="k">Data</span><span class="v">Gio 27 Agosto 2026</span></div>
+    <div class="item"><span class="k">Inizio</span><span class="v">ore 20:00</span></div>
+    <div class="item"><span class="k">Manager</span><span class="v">8</span></div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-primary" id="drawBtn">Sorteggia l'ordine</button>
+    <button class="btn btn-ghost" id="resetBtn" disabled>Nuovo sorteggio</button>
+    <div class="duration-field">
+      <label for="raceDuration">Durata gara</label>
+      <input type="number" id="raceDuration" value="6" min="2" max="30" step="0.5">
+      <span class="unit">sec</span>
+    </div>
+  </div>
+
+  <div class="race-panel" id="racePanel">
+    <div class="race-title"><span class="flag">🏁</span>Spareggio per il 1° posto</div>
+    <div class="lane" id="laneA">
+      <div class="lane-label"><span class="dot"></span><span class="lname"></span><span class="winner-tag">1°!</span></div>
+      <div class="track"><div class="runner"></div><div class="finish"></div></div>
+    </div>
+    <div class="lane" id="laneB">
+      <div class="lane-label"><span class="dot"></span><span class="lname"></span><span class="winner-tag">1°!</span></div>
+      <div class="track"><div class="runner"></div><div class="finish"></div></div>
+    </div>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="result-actions" id="resultActions" style="display:none;">
+    <button class="btn btn-ghost" id="copyBtn">Copia risultato</button>
+  </div>
+
+  <p class="footnote">Posizioni 8→3 estratte in sequenza; le posizioni 1 e 2 sono assegnate dalla gara tra i due manager rimasti. Ogni manager compare una sola volta. "Nuovo sorteggio" rimescola tutto da capo.</p>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var MANAGERS = [
+    {key:"Alessio", display:"Alessio", color:"#d55181"},
+    {key:"Antonello", display:"Antonello", color:"#199e70"},
+    {key:"Gianvito", display:"Gianvito", color:"#9085e9"},
+    {key:"SavGianfr", display:"Saverio/Gianfranco", color:"#d95926"},
+    {key:"Simone", display:"Simone", color:"#3987e5"},
+    {key:"Vincenzo", display:"Vincenzo", color:"#c98500"},
+    {key:"Stefano", display:"Stefano", color:"#e66767"},
+    {key:"VitoStefano", display:"Vito/Stefano", color:"#008300"}
+  ];
+
+  var board = document.getElementById('board');
+  var drawBtn = document.getElementById('drawBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  var resultActions = document.getElementById('resultActions');
+  var copyBtn = document.getElementById('copyBtn');
+  var toastEl = document.getElementById('toast');
+  var racePanel = document.getElementById('racePanel');
+  var raceDurationInput = document.getElementById('raceDuration');
+
+  var finalOrder = new Array(8); // index 0 = posizione 1 ... index 7 = posizione 8
+  var running = false;
+  var RACE_TICK_MS = 45;
+
+  function getRaceDurationMs(){
+    var v = parseFloat(raceDurationInput.value);
+    if(isNaN(v) || v <= 0) v = 6;
+    v = Math.min(30, Math.max(2, v));
+    return v * 1000;
+  }
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i+1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function renderBoard(){
+    var html = '';
+    for(var i = 0; i < 8; i++){
+      html += '' +
+        '<div class="slot pending" data-idx="'+i+'">' +
+          '<div class="pos">'+(i+1)+'</div>' +
+          '<div class="reel"><div class="reel-inner">' +
+            '<span class="dot" style="background:#555"></span>' +
+            '<span class="name">—</span>' +
+          '</div></div>' +
+        '</div>';
+    }
+    board.innerHTML = html;
+    racePanel.classList.remove('show');
+    document.querySelectorAll('.lane-label').forEach(function(l){ l.classList.remove('won'); });
+  }
+
+  function setSlotContent(idx, color, name, cls){
+    var slot = board.querySelector('.slot[data-idx="'+idx+'"]');
+    slot.className = 'slot ' + cls;
+    var dot = slot.querySelector('.dot');
+    var nameEl = slot.querySelector('.name');
+    dot.style.background = color;
+    nameEl.textContent = name;
+  }
+
+  function markRacePending(idx){
+    var slot = board.querySelector('.slot[data-idx="'+idx+'"]');
+    slot.className = 'slot race-pending';
+    slot.querySelector('.name').textContent = 'in gara…';
+  }
+
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toastEl.classList.remove('show'); }, 1800);
+  }
+
+  function revealSlot(idx, chosen, pool, onDone){
+    var spins = 10 + (7 - idx) * 2;
+    var delay = 55;
+    var count = 0;
+
+    function tick(){
+      var candidate = pool[Math.floor(Math.random() * pool.length)];
+      setSlotContent(idx, candidate.color, candidate.display, 'spinning');
+      count++;
+      if(count < spins){
+        delay = delay * 1.06;
+        setTimeout(tick, delay);
+      } else {
+        setSlotContent(idx, chosen.color, chosen.display, 'locked');
+        onDone();
+      }
+    }
+    tick();
+  }
+
+  // --- gara per 1° e 2° posto tra i due manager rimasti ---
+  function runRace(mgrA, mgrB, onDone){
+    racePanel.classList.add('show');
+
+    var lanes = [
+      {el: document.getElementById('laneA'), mgr: mgrA, progress: 0, done: false},
+      {el: document.getElementById('laneB'), mgr: mgrB, progress: 0, done: false}
+    ];
+
+    lanes.forEach(function(l){
+      l.el.querySelector('.dot').style.background = l.mgr.color;
+      l.el.querySelector('.lname').textContent = l.mgr.display;
+      l.el.querySelector('.runner').style.background = l.mgr.color;
+      l.el.querySelector('.runner').style.left = '1px';
+      l.el.querySelector('.lane-label').classList.remove('won');
+    });
+
+    var winner = null;
+    var raceOver = false;
+
+    var durationMs = getRaceDurationMs();
+    var estTicks = durationMs / RACE_TICK_MS;
+    var avgStep = 100 / estTicks;
+
+    var interval = setInterval(function(){
+      lanes.forEach(function(l){
+        if(l.done) return;
+        var step = avgStep * (0.3 + Math.random() * 1.4);
+        l.progress = Math.min(100, l.progress + step);
+        var trackWidth = l.el.querySelector('.track').clientWidth;
+        var pos = Math.min(trackWidth - 11, (l.progress / 100) * (trackWidth - 11));
+        l.el.querySelector('.runner').style.left = pos + 'px';
+        if(l.progress >= 100){
+          l.done = true;
+          if(!winner){
+            winner = l;
+          }
+        }
+      });
+
+      if(winner && !raceOver){
+        raceOver = true;
+        clearInterval(interval);
+        winner.el.querySelector('.lane-label').classList.add('won');
+        setTimeout(function(){
+          var loser = lanes[0] === winner ? lanes[1] : lanes[0];
+          onDone(winner.mgr, loser.mgr);
+        }, 550);
+      }
+    }, RACE_TICK_MS);
+  }
+
+  function runDraw(){
+    if(running) return;
+    running = true;
+    drawBtn.disabled = true;
+    resetBtn.disabled = true;
+    raceDurationInput.disabled = true;
+    resultActions.style.display = 'none';
+
+    var shuffled = shuffle(MANAGERS);
+    // ultimi due elementi = contendenti per 1°/2° posto, decisi con la gara
+    var racers = shuffled.slice(6, 8);
+    // dal 3° all'8° posto: assegnazione già definita, rivelata dall'8° verso il 3°
+    var sequential = shuffled.slice(0, 6); // sequential[0] -> posizione 8 ... sequential[5] -> posizione 3
+    for(var k = 0; k < 6; k++){
+      finalOrder[7 - k] = sequential[k];
+    }
+
+    markRacePending(0);
+    markRacePending(1);
+
+    var remainingPool = MANAGERS.slice();
+    var revealIdx = [7,6,5,4,3,2];
+    var step = 0;
+
+    function nextReveal(){
+      if(step >= revealIdx.length){
+        // tutte le posizioni 8->3 rivelate: ora la gara per 1° e 2°
+        runRace(racers[0], racers[1], function(winnerMgr, loserMgr){
+          finalOrder[0] = winnerMgr;
+          finalOrder[1] = loserMgr;
+          setSlotContent(0, winnerMgr.color, winnerMgr.display, 'locked');
+          setSlotContent(1, loserMgr.color, loserMgr.display, 'locked');
+          running = false;
+          resetBtn.disabled = false;
+          raceDurationInput.disabled = false;
+          resultActions.style.display = 'flex';
+          showToast('Ordine di chiamata completo.');
+        });
+        return;
+      }
+      var idx = revealIdx[step];
+      var chosen = finalOrder[idx];
+      remainingPool = remainingPool.filter(function(m){ return m.key !== chosen.key; });
+      var poolForSpin = remainingPool.length ? remainingPool.concat([chosen]) : [chosen];
+      revealSlot(idx, chosen, poolForSpin, function(){
+        step++;
+        setTimeout(nextReveal, 160);
+      });
+    }
+    nextReveal();
+  }
+
+  function resultText(){
+    var lines = [];
+    for(var i = 0; i < 8; i++){
+      lines.push((i+1)+'. '+finalOrder[i].display);
+    }
+    return lines.join('\n');
+  }
+
+  drawBtn.addEventListener('click', runDraw);
+
+  resetBtn.addEventListener('click', function(){
+    renderBoard();
+    resultActions.style.display = 'none';
+    resetBtn.disabled = true;
+    drawBtn.disabled = false;
+  });
+
+  copyBtn.addEventListener('click', function(){
+    var text = 'Ordine di chiamata — TikiFanta 2026/27\n' + resultText();
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        showToast('Risultato copiato negli appunti.');
+      }).catch(function(){
+        showToast('Impossibile copiare automaticamente.');
+      });
+    } else {
+      showToast('Copia non supportata su questo browser.');
+    }
+  });
+
+  renderBoard();
+})();
+</script>
+</body>
+</html>
